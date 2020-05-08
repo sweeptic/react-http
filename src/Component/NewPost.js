@@ -9,40 +9,43 @@ export default class NewPost extends Component {
 
     render() {
         return (
-            <div class="card p-4 border-primary">
-                <div class="card-body">
-                    <h3 class="text-center">New Post</h3>
+            <div className="card p-4 border-primary">
+                <div className="card-body">
+                    <h3 className="text-center">New Post</h3>
                     <hr />
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="title" />
+
+
+                    <div className="row">
+
+                        <div className="col-md-6">
+                            <div className="form-group">
+                                <input type="text" className="form-control" placeholder="title" />
                             </div>
                         </div>
 
 
-                        <div class="col-md-6">
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> My Dropdown</button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Link One</a>
-                                    <a class="dropdown-item" href="#">Link Two</a>
-                                    <a class="dropdown-item" href="#">Link Three</a>
-                                </div>
+                        <div className="col-md-6">
+                            <div className="form-group">
+                             
+                                <select className="form-control" id="gender">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
                             </div>
                         </div>
-
 
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <textarea class="form-control" placeholder="Blog Post"></textarea>
+
+
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="form-group">
+                                <textarea className="form-control" placeholder="Blog Post"></textarea>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input type="submit" value="Submit" class="btn btn-outline-danger btn-block" />
+                        <div className="col-md-12">
+                            <div className="form-group">
+                                <input type="submit" value="Submit" className="btn btn-outline-danger btn-block" />
                             </div>
                         </div>
                     </div>

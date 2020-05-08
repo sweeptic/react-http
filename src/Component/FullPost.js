@@ -10,7 +10,7 @@ class FullPost extends Component {
                 <div className="card-body">
                     <h4 className="card-title">Title</h4>
                     <p className="card-text">Content</p>
-                    <button class="btn btn-warning" type="button">Delete Post</button>
+                    <button className="btn btn-warning" type="button">Delete Post</button>
                 </div>
             </div>
         )
