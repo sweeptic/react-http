@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 
 export default class NewPost extends Component {
+    state = {
+        title: '',
+        author: 'Max',
+        content: ''
+    }
+
     render() {
         return (
             <div class="card p-4 border-primary">
@@ -13,11 +19,20 @@ export default class NewPost extends Component {
                                 <input type="text" class="form-control" placeholder="title" />
                             </div>
                         </div>
+
+
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Author" />
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> My Dropdown</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Link One</a>
+                                    <a class="dropdown-item" href="#">Link Two</a>
+                                    <a class="dropdown-item" href="#">Link Three</a>
+                                </div>
                             </div>
-                        </div>                    
+                        </div>
+
+
                     </div>
                     <div class="row">
                         <div class="col-md-12">
