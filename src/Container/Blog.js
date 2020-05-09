@@ -23,16 +23,25 @@ class Blog extends Component {
          .get("https://jsonplaceholder.typicode.com/posts")
          .then((response) => {
 
+            const slicedPosts = response.data.slice(0, 6);
+            const updatedPosts = slicedPosts.map(post => {
+               return {
+                  ...post, author: 'Max'
+               }
+            })
+
+            console.log(updatedPosts)
+
             this.setState({
-               posts: response.data,
+               posts: updatedPosts,
             });
-            console.log(response);
+
          });
    }
 
    render() {
 
-      const posts = this.state.posts.map(post => <Post key={post.id} title={post.title} />)
+      const posts = this.state.posts.map(post => <Post key={post.id} title={post.title} author={post.author} />)
 
 
       return (
