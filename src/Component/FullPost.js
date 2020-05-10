@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Axios from 'axios';
 
 
-class FullPost extends Component {
+class FullPost extends PureComponent {
    state = {
       loadedPost: null
    }
@@ -18,9 +18,18 @@ class FullPost extends Component {
                .get("https://jsonplaceholder.typicode.com/posts/" + this.props.id)
                .then((response) => {
                   this.setState({ loadedPost: response.data });
+                  console.log('x')
                });
          }
       }
+   }
+
+   deletePostHandler = () => {
+      // Axios.delete("https://jsonplaceholder.typicode.com/posts/" + this.props.id)
+      //    .then(response => {
+      //       console.log(response)
+      //    })
+      console.log('deleting selected post')
    }
 
    render() {
@@ -48,7 +57,7 @@ class FullPost extends Component {
                <div className="card-body p-0">
                   <h4 className="card-title border-bottom p-3">{this.state.loadedPost.title}</h4>
                   <p className="card-text text-muted border-bottom p-3">{this.state.loadedPost.body}</p>
-                  <button className="mb-3 btn btn-warning" type="button">Delete Post</button>
+                  <button className="mb-3 btn btn-warning" type="button" onClick={this.deletePostHandler} >Delete Post</button>
                </div>
             </div>
          )

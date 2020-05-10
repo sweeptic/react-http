@@ -44,6 +44,7 @@ class Blog extends Component {
    }
 
    render() {
+      console.log('blog render')
 
       const posts = this.state.posts.map(post => <Post
          key={post.id}
