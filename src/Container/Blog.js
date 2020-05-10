@@ -23,8 +23,7 @@ class Blog extends Component {
          .get("https://jsonplaceholder.typicode.com/posts")
          .then((response) => {
 
-            const slicedPosts = response.data.slice(0, 6);
-            const updatedPosts = slicedPosts.map(post => {
+            const updatedPosts = response.data.slice(0, 6).map(post => {
                return {
                   ...post, author: 'Max'
                }
@@ -45,14 +44,14 @@ class Blog extends Component {
 
 
       return (
-         <div>
-            <div className="container bg-light p-3 card-columns" >
+         <div style={{backgroundColor: "#f0f2f5"}}>
+            <div className="container p-3 card-columns" >
                {posts}
             </div>
-            <div className="container bg-light p-3" >
+            <div className="container  p-3" >
                <FullPost />
             </div>
-            <div className="container bg-light p-3" >
+            <div className="container p-3" >
                <NewPost />
             </div>
          </div>

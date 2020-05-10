@@ -9,7 +9,7 @@ export default class NewPost extends Component {
 
    render() {
       return (
-         <div className="card p-4 border-primary">
+         <div className="card p-4 ">
             <div className="card-body">
                <h3 className="text-center">New Post</h3>
                <hr />

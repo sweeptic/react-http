@@ -6,7 +6,7 @@ class FullPost extends Component {
       let post = <p>Please select a Post!</p>
 
       post = (
-         <div className="card border-primary mb-3 text-center" >
+         <div className="card mb-3 text-center" >
             <div className="card-body">
                <h4 className="card-title">Title</h4>
                <p className="card-text">Content</p>

@@ -2,10 +2,10 @@ import React from 'react'
 
 const Post = (props) => {
    return (
-      <div className="card border-primary mb- text-center">
-         <div className="card-body">
-            <h4 className="card-title">{props.title}</h4>
-            <p className="card-text">{props.author}</p>
+      <div className="card text-center border-0">
+         <div className="card-body p-0">
+            <h5 className="card-title border-bottom p-3 ">{props.title}</h5>
+            <p className="card-text bg-secondary mt-1 text-white rounded d-inline-flex px-2 mb-3">{props.author}</p>
          </div>
 
       </div>
