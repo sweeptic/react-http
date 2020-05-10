@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import Post from '../Component/Post';
 import FullPost from '../Component/FullPost';
 import NewPost from '../Component/NewPost';
-import Axios from 'axios';
+// import Axios from 'axios';
 // import styled from 'styled-components';
-
+import axios from '../axios'
 
 // const GrayBackground = styled.div`
 // background-color: lightgrey;
@@ -21,8 +21,8 @@ class Blog extends Component {
 
 
    componentDidMount() {
-      Axios
-         .get("https://jsonplaceholder.typicode.com/posts")
+      axios
+         .get("/posts")
          .then((response) => {
 
             const updatedPosts = response.data.slice(0, 3).map(post => {
