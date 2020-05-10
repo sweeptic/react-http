@@ -14,7 +14,8 @@ import Axios from 'axios';
 class Blog extends Component {
 
    state = {
-      posts: []
+      posts: [],
+      selectedPostId: null
    };
 
 
@@ -29,8 +30,6 @@ class Blog extends Component {
                }
             })
 
-            console.log(updatedPosts)
-
             this.setState({
                posts: updatedPosts,
             });
@@ -38,18 +37,29 @@ class Blog extends Component {
          });
    }
 
+   postSelectedHandler(id) {
+      this.setState({
+         selectedPostId: id
+      })
+   }
+
    render() {
 
-      const posts = this.state.posts.map(post => <Post key={post.id} title={post.title} author={post.author} />)
+      const posts = this.state.posts.map(post => <Post
+         key={post.id}
+         title={post.title}
+         author={post.author}
+         clicked={() => this.postSelectedHandler(post.id)}
+      />)
 
 
       return (
-         <div style={{backgroundColor: "#f0f2f5"}}>
+         <div style={{ backgroundColor: "#f0f2f5" }}>
             <div className="container p-3 card-columns" >
                {posts}
             </div>
             <div className="container  p-3" >
-               <FullPost />
+               <FullPost id={this.state.selectedPostId} />
             </div>
             <div className="container p-3" >
                <NewPost />
