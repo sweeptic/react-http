@@ -1,8 +1,8 @@
-import React, { PureComponent  } from 'react'
+import React, { Component } from 'react'
 
 
 
-export default class NewPost extends PureComponent  {
+export default class NewPost extends Component {
    state = {
       title: '',
       author: 'Max',
@@ -12,23 +12,21 @@ export default class NewPost extends PureComponent  {
 
    postDataHandler = () => {
 
-      const data = {
-         title: this.state.title,
-         author: this.state.author,
-         content: this.state.content,
-      } 
-      
-      console.log(data)
-
+      // const data = {
+      //    title: this.state.title,
+      //    author: this.state.author,
+      //    content: this.state.content,
+      // }
       // Axios.post("https://jsonplaceholder.typicode.com/posts", data)
       // .then(response => {
       //     console.log(response)
       // })
+      console.log('added new post')
 
    }
 
    render() {
-      console.log('NewPost render method')
+  
       return (
          <div className="card p-4 ">
             <div className="card-body">

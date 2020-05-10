@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import Axios from 'axios';
 
 
-class FullPost extends PureComponent {
+class FullPost extends Component {
    state = {
       loadedPost: null
    }
@@ -18,7 +18,7 @@ class FullPost extends PureComponent {
                .get("https://jsonplaceholder.typicode.com/posts/" + this.props.id)
                .then((response) => {
                   this.setState({ loadedPost: response.data });
-                  console.log('x')
+              
                });
          }
       }
@@ -33,7 +33,7 @@ class FullPost extends PureComponent {
    }
 
    render() {
-      console.log('FullPost render method')
+  
       let post = (
          <div className="card mb-3 text-center border-0" >
             <div className="card-body">
