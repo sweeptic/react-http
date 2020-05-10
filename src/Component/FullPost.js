@@ -24,7 +24,7 @@ class FullPost extends Component {
    }
 
    render() {
-
+      console.log('FullPost render method')
       let post = (
          <div className="card mb-3 text-center border-0" >
             <div className="card-body">
