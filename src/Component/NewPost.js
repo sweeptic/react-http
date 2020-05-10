@@ -17,7 +17,7 @@ export default class NewPost extends Component {
       //    author: this.state.author,
       //    content: this.state.content,
       // }
-      // Axios.post("https://jsonplaceholder.typicode.com/posts", data)
+      // Axios.post("/posts", data)
       // .then(response => {
       //     console.log(response)
       // })
