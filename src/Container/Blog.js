@@ -24,7 +24,7 @@ class Blog extends Component {
          .get("https://jsonplaceholder.typicode.com/posts")
          .then((response) => {
 
-            const updatedPosts = response.data.slice(0, 6).map(post => {
+            const updatedPosts = response.data.slice(0, 3).map(post => {
                return {
                   ...post, author: 'Max'
                }
@@ -66,10 +66,7 @@ class Blog extends Component {
             </div>
          </div>
       )
-
    }
-
-
 }
 
 export default Blog
