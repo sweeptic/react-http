@@ -4,9 +4,7 @@ import React from 'react'
 const Post = (props) => {
    return (
 
-      <div className="card text-center border-0"
-         onClick={props.clicked}
-      >
+      <div className="card text-center border-0" onClick={props.clicked}>
 
          <img className="card-img-top"
             src={props.imgPath}
@@ -17,6 +15,7 @@ const Post = (props) => {
             <p className="card-text bg-secondary mt-1 text-white rounded d-inline-flex px-2 mb-3">{props.author}</p>
          </div>
       </div>
+      
    )
 }
 
