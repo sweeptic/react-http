@@ -39,7 +39,6 @@ class Posts extends Component {
       })
    }
 
-
    render() {
 
       console.log('Blog render')
