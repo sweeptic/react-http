@@ -25,7 +25,7 @@ class Blog extends PureComponent {
          .get("/posts")
          .then((response) => {
 
-            const updatedPosts = response.data.slice(0, 40).map(post => {
+            const updatedPosts = response.data.slice(0, 10).map(post => {
                return {
                   ...post, author: 'Max'
                }
