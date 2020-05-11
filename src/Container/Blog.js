@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Post from '../Component/Post';
 import FullPost from '../Component/FullPost';
 import NewPost from '../Component/NewPost';
@@ -11,7 +11,7 @@ import axios from '../axios'
 // `;
 
 
-class Blog extends Component {
+class Blog extends PureComponent {
 
    state = {
       posts: [],
@@ -25,7 +25,7 @@ class Blog extends Component {
          .get("/posts")
          .then((response) => {
 
-            const updatedPosts = response.data.slice(0, 3).map(post => {
+            const updatedPosts = response.data.slice(0, 40).map(post => {
                return {
                   ...post, author: 'Max'
                }
@@ -50,19 +50,21 @@ class Blog extends Component {
    }
 
    render() {
-
+      console.log('Blog render')
       let posts = <p>something went wrong</p>
 
       if (!this.state.error) {
-          posts = this.state.posts.map(post => <Post
-            key={post.id}
-            title={post.title}
-            author={post.author}
-            clicked={() => this.postSelectedHandler(post.id)}
-         />)
+         posts = this.state.posts.map(post =>
+               <Post
+                  imgPath={process.env.PUBLIC_URL + '/photos/unsplash-' + post.id + '.jpg'}
+                  imgAlt={'photo_' + post.id}
+                  key={post.id}
+                  title={post.title}
+                  author={post.author}
+                  clicked={() => this.postSelectedHandler(post.id)}
+               />
+         )
       }
-
-
 
 
       return (

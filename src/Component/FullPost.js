@@ -4,7 +4,8 @@ import Axios from 'axios';
 
 class FullPost extends Component {
    state = {
-      loadedPost: null
+      loadedPost: null,
+      loadedPostId: null
    }
 
 
@@ -15,11 +16,11 @@ class FullPost extends Component {
             (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)
          ) {
             Axios
-               .get("/posts/" + this.props.id)
+               .get("/posts/" + this.props.id)                         
                .then((response) => {
-                  this.setState({ loadedPost: response.data });
-              
-               });
+                  this.setState({ loadedPost: response.data, loadedPostId: this.props.id });
+               })
+               
          }
       }
    }
@@ -34,7 +35,8 @@ class FullPost extends Component {
    }
 
    render() {
-  
+      console.log('fullpost render')
+
       let post = (
          <div className="card mb-3 text-center border-0" >
             <div className="card-body">
@@ -42,7 +44,7 @@ class FullPost extends Component {
             </div>
          </div>)
 
-      if (this.props.id) {
+      if (this.state.id || (this.state.loadedPostId !== this.props.id)) {
          post = (
             <div className="card mb-3 text-center border-0" >
                <div className="card-body">
@@ -51,8 +53,8 @@ class FullPost extends Component {
             </div>)
       }
 
-      if (this.state.loadedPost) {
 
+      if (this.state.loadedPost) {
          post = (
             <div className="card mb-3 text-center" >
                <div className="card-body p-0">

@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 
 
-export default class NewPost extends Component {
+export default class NewPost extends PureComponent {
    state = {
       title: '',
       author: 'Max',
@@ -26,7 +26,7 @@ export default class NewPost extends Component {
    }
 
    render() {
-  
+      console.log('newpost render')
       return (
          <div className="card p-4 ">
             <div className="card-body">
