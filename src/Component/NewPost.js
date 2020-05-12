@@ -10,11 +10,44 @@ export default class NewPost extends Component {
    }
 
    postDataHandler = () => {
-      console.log('added new post')
+      console.log('.....NewPost postDataHandler')
+      // const data = {
+      //    title: this.state.title,
+      //    author: this.state.author,
+      //    content: this.state.content,
+      // }
+      // Axios.post("/posts", data)
+      // .then(response => {
+      //     console.log(response)
+      // })
+   }
+
+   static getDerivedStateFromProps(props, state) {
+      console.log('.....NewPost call getDerivedStateFromProps')
+      return null;
+   }
+
+   shouldComponentUpdate() {
+      console.log('.....NewPost call shouldComponentUpdate')
+      return true;
+   }
+
+   getSnapshotBeforeUpdate() {
+      console.log('.....NewPost call getSnapshotBeforeUpdate')
+      return null;
+   }
+
+
+   componentDidUpdate() {
+      console.log('.....NewPost call componentDidUpdate')
+   }
+
+   componentDidMount() {
+      console.log('.....NewPost componentDidMount called')
    }
 
    render() {
-      console.log('newpost render')
+      console.log('.....NewPost render')
       return (
          <Container className="p-3 mt-5">
             <div className="card p-4 ">

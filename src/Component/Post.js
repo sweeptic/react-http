@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const Post = (props) => {
    return (
       <div className="card text-center border-0" onClick={props.clicked}>

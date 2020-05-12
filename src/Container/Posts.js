@@ -13,16 +13,17 @@ class Posts extends Component {
    };
 
    componentDidMount() {
+      console.log('............Post componentDidMount called')
       axios
          .get("/posts")
          .then((response) => {
-
+            console.log('............componentDidMount then -> Post fetch data')
             const updatedPosts = response.data.slice(0, 10).map(post => {
                return {
                   ...post, author: 'Max'
                }
             })
-
+            console.log('............componentDidMount then -> SetState called')
             this.setState({
                posts: updatedPosts,
             });
@@ -34,14 +35,34 @@ class Posts extends Component {
    }
 
    postSelectedHandler(id) {
+      console.log('............Posts setstate called')
       this.setState({
          selectedPostId: id
       })
    }
 
-   render() {
+   static getDerivedStateFromProps(props, state) {
+      console.log('............Posts call getDerivedStateFromProps')
+      return null;
+   }
 
-      console.log('Posts render')
+   shouldComponentUpdate() {
+      console.log('............Posts call shouldComponentUpdate')
+      return true;
+   }
+
+   getSnapshotBeforeUpdate() {
+      console.log('............Posts call getSnapshotBeforeUpdate')
+      return null;
+   }
+
+
+   componentDidUpdate() {
+      console.log('............Posts call componentDidUpdate')
+   }
+
+   render() {
+      console.log('............Posts Posts render')
       let posts = <p>something went wrong</p>
 
       if (!this.state.error) {
@@ -55,6 +76,7 @@ class Posts extends Component {
                clicked={() => this.postSelectedHandler(post.id)}
             />
          )
+         console.log('............create Post component finished ')
       }
 
       return (
