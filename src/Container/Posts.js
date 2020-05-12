@@ -41,7 +41,7 @@ class Posts extends Component {
 
    render() {
 
-      console.log('Blog render')
+      console.log('Posts render')
       let posts = <p>something went wrong</p>
 
       if (!this.state.error) {

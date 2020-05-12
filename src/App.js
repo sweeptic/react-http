@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
    render() {
+      console.log('App render')
       return (
          <BrowserRouter>
             <Blog />
