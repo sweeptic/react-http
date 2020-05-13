@@ -3,6 +3,8 @@ import Posts from './Posts';
 import NewPost from '../Component/NewPost';
 import { Route } from 'react-router-dom';
 import NavbarComponent from '../Component/Navbar'
+import FullPost from './../Component/FullPost';
+
 
 class Blog extends Component {
    render() {
@@ -12,8 +14,11 @@ class Blog extends Component {
             <header >
                <NavbarComponent />
             </header>
+
             <Route path="/" exact component={Posts} ></Route>
             <Route path="/new-post" component={NewPost} ></Route>
+            <Route path="/:id" exact component={FullPost} ></Route>
+
          </div>
       )
    }

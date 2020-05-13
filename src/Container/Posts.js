@@ -2,7 +2,7 @@ import Post from '../Component/Post';
 import React, { Component } from 'react'
 import axios from '../axios'
 import Container from 'react-bootstrap/Container'
-
+import { Link } from 'react-router-dom'
 
 class Posts extends Component {
 
@@ -67,14 +67,18 @@ class Posts extends Component {
 
       if (!this.state.error) {
          posts = this.state.posts.map(post =>
-            <Post
-               imgPath={process.env.PUBLIC_URL + '/photos/unsplash-' + post.id + '.jpg'}
-               imgAlt={'photo_' + post.id}
-               key={post.id}
-               title={post.title}
-               author={post.author}
-               clicked={() => this.postSelectedHandler(post.id)}
-            />
+
+            <Link to={'/' + post.id} key={post.id}>
+               <Post
+                  imgPath={process.env.PUBLIC_URL + '/photos/unsplash-' + post.id + '.jpg'}
+                  imgAlt={'photo_' + post.id}
+                  key={post.id}
+                  title={post.title}
+                  author={post.author}
+                  clicked={() => this.postSelectedHandler(post.id)}
+               />
+            </Link>
+
          )
          console.log('............create Post component finished ')
       }
