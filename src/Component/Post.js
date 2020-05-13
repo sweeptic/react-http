@@ -1,6 +1,9 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom';
+
 
 const Post = (props) => {
+   console.log(props)
    return (
       <div className="card text-center border-0" onClick={props.clicked}>
          <img className="card-img-top"
@@ -14,4 +17,4 @@ const Post = (props) => {
    )
 }
 
-export default Post
+export default withRouter(Post);

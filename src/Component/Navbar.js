@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import {  Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Navbar_Component = () => {
@@ -15,13 +15,17 @@ const Navbar_Component = () => {
             <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="ml-auto">
                   <Nav.Link as={Link} to="/">Home</Nav.Link>
-                  <Nav.Link as={Link} to={{ pathname: '/new-post' }}>New Post</Nav.Link>
+                  <Nav.Link as={Link} to={{
+
+                     pathname: '/new-post',
+                     hash: '#submit',
+                     search: '?quick-submit=true'
+
+                  }}>New Post</Nav.Link>
                </Nav>
             </Navbar.Collapse>
          </Container>
       </Navbar>
-
-
    )
 }
 

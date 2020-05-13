@@ -40,10 +40,14 @@ export default class NewPost extends Component {
 
    componentDidUpdate() {
       console.log('.....NewPost call componentDidUpdate')
+      console.log(this)
+
    }
 
    componentDidMount() {
-      console.log('.....NewPost componentDidMount called')
+      console.warn('.....NewPost componentDidMount called')
+      // console.log(this.props)
+      console.log(this)
    }
 
    render() {
@@ -62,7 +66,7 @@ export default class NewPost extends Component {
                      </div>
                      <div className="col-md-6">
                         <div className="form-group">
-                           <select value={this.state.author} className="form-control" id="gender" onChange={(event) => this.setState({ author: event.target.value })}>
+                           <select value={this.state.author} className="form-control" onChange={(event) => this.setState({ author: event.target.value })}>
                               <option value="Max">Max</option>
                               <option value="Anna">Anna</option>
                            </select>
