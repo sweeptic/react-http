@@ -1,29 +1,37 @@
 import React, { Component } from 'react'
 import Posts from './Posts';
-import NewPost from '../Component/NewPost';
+// import NewPost from '../Component/NewPost';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import NavbarComponent from '../Component/Navbar'
+import AsyncComponent from '../hoc/AsyncComponent';
+
+
+const AsyncNewPost = AsyncComponent(() => {
+   return import('../Component/NewPost')
+});
 
 
 class Blog extends Component {
    state = {
-      auth: false
+      auth: true
    }
 
    render() {
       return (
+
+
          <div style={{ backgroundColor: "#f0f2f5" }}>
-
             <NavbarComponent />
-
             <Switch>
-
-               {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null}
+               {this.state.auth ? <Route path="/new-post" component={AsyncNewPost} /> : null}
                <Route path="/posts" component={Posts} />
-               <Redirect from="/" to="/posts" />
+               <Route render={() => <h1>Not found</h1>} />
+               {/* <Redirect from="/" to="/posts" /> */}
             </Switch>
-
          </div>
+
+
+
       )
    }
 }

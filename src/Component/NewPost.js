@@ -5,7 +5,7 @@ import axios from '../axios'
 
 export default class NewPost extends Component {
    state = {
-      id: '2',
+      id: 2,
       title: 'abc',
       author: 'fill this',
       userId: 1,
@@ -16,9 +16,7 @@ export default class NewPost extends Component {
    postDataHandler = () => {
       console.log('.....NewPost postDataHandler')
       const data = {
-         name: 101,
          title: this.state.title,
-         author: this.state.author,
          body: this.state.body,
          id: this.state.id,
          userId: 1

@@ -21,6 +21,9 @@ class FullPost extends Component {
             axios.get('/posts/' + this.props.match.params.id + '.json')
                .then(response => {
                   this.setState({ loadedPost: response.data });
+
+                  console.log(this.state.loadedPost.id)
+                  console.log(this.props.match.params.id)
                });
          }
       }
