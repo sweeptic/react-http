@@ -1,32 +1,49 @@
 import React, { Component } from 'react'
 import Container from 'react-bootstrap/Container'
-
+import { Redirect } from 'react-router-dom';
+import axios from '../axios'
 
 export default class NewPost extends Component {
    state = {
-      title: '',
-      author: 'Max',
-      content: ''
+      id: '2',
+      title: 'abc',
+      author: 'fill this',
+      userId: 1,
+      body: 'lorem',
+      submitted: false
    }
 
    postDataHandler = () => {
       console.log('.....NewPost postDataHandler')
-      // const data = {
-      //    title: this.state.title,
-      //    author: this.state.author,
-      //    content: this.state.content,
-      // }
-      // Axios.post("/posts", data)
-      // .then(response => {
-      //     console.log(response)
-      // })
+      const data = {
+         name: 101,
+         title: this.state.title,
+         author: this.state.author,
+         body: this.state.body,
+         id: this.state.id,
+         userId: 1
+      }
+      axios.put("/posts/2.json", data)
+         .then(response => {
+            console.log(response);
+            this.setState({ submitted: true })
+         })
    }
 
 
-
    render() {
+
+      let redirect = null;
+      if(this.state.submitted) {
+         redirect = <Redirect to="posts" />
+      }
+
+
       return (
          <Container className="p-3 mt-5">
+
+            {redirect}
+
             <div className="card p-4 ">
                <div className="card-body">
                   <h3 className="text-center">New Post</h3>
@@ -49,7 +66,7 @@ export default class NewPost extends Component {
                   <div className="row">
                      <div className="col-md-12">
                         <div className="form-group">
-                           <textarea value={this.state.content} className="form-control" placeholder="Blog Post" onChange={(event) => this.setState({ content: event.target.value })}></textarea>
+                           <textarea value={this.state.body} className="form-control" placeholder="Blog Post" onChange={(event) => this.setState({ body: event.target.value })}></textarea>
                         </div>
                      </div>
                      <div className="col-md-12">
