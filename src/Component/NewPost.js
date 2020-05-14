@@ -26,7 +26,8 @@ export default class NewPost extends Component {
       axios.put("/posts/2.json", data)
          .then(response => {
             console.log(response);
-            this.setState({ submitted: true })
+            // this.setState({ submitted: true })
+            this.props.history.push('/posts')
          })
    }
 
