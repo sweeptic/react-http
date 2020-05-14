@@ -1,11 +1,11 @@
-// import  axios  from 'axios';
+import  axios  from 'axios';
 
 
-// //used by posts
-// const instance = axios.create({
-//     baseURL: "https://jsonplaceholder.typicode.com"
-// });
+//used by posts
+const instance = axios.create({
+    baseURL: "https://jsonplaceholder.typicode.com"
+});
 
-// instance.defaults.headers.common["Authorization"] = "AUTH TOKEN FROM INSTANCE";
+instance.defaults.headers.common["Authorization"] = "AUTH TOKEN FROM INSTANCE";
 
-// export default instance;
+export default instance;

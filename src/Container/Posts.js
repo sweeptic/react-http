@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 import Container from 'react-bootstrap/Container'
 import { Link } from 'react-router-dom'
 
-// import axios from '../axios'
-import axios from 'axios';
+ import axios from '../axios'
+// import axios from 'axios';
 
 class Posts extends Component {
 
@@ -17,7 +17,11 @@ class Posts extends Component {
    componentDidMount() {
       console.log('............Post componentDidMount called')
       axios
-         .get("https://jsonplaceholder.typicode.com/posts/")
+         // .get("https://jsonplaceholder.typicode.com/posts/")
+
+         .get("/posts/")
+
+
          .then((response) => {
             console.log('............componentDidMount then -> Post fetch data')
             const updatedPosts = response.data.slice(0, 50).map(post => {
