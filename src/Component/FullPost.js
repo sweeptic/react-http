@@ -56,12 +56,13 @@ class FullPost extends Component {
 
             <div className="container p-3 mt-5">
                <div className="card mb-3 text-center" >
+{/*                   
                   <img className="card-img-top"
 
                      src={process.env.PUBLIC_URL + '/photos/unsplash-' + this.props.match.params.id + '.jpg'}
                      alt={'photo_' + this.props.match.params.id}
 
-                  />
+                  /> */}
 
                   <div className="card-body p-0">
                      <h4 className="card-title border-bottom p-3">{this.state.loadedPost.title}</h4>
