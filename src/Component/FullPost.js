@@ -1,25 +1,27 @@
 import React, { Component } from 'react'
-import Axios from 'axios';
+
+import axios from 'axios';
 
 
 class FullPost extends Component {
    state = {
       loadedPost: null,
-      loadedPostId: null
+
    }
 
 
-   componentDidUpdate() {
-      if (this.props.id) {
+   componentDidMount() {
+      console.log(this.props.match.params.id)
+      if (this.props.match.params.id) {
          if (!this.state.loadedPost ||
-            (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)
+            (this.state.loadedPost && this.state.loadedPost.id !== +this.props.match.params.id)
          ) {
-            Axios
-               .get("/posts/" + this.props.id)                         
+            axios
+               .get("https://jsonplaceholder.typicode.com/posts/" + this.props.match.params.id)
                .then((response) => {
-                  this.setState({ loadedPost: response.data, loadedPostId: this.props.id });
+                  this.setState({ loadedPost: response.data, loadedPostId: this.props.match.params.id });
                })
-               
+            console.log('end')
          }
       }
    }
@@ -31,23 +33,24 @@ class FullPost extends Component {
    render() {
       console.log('fullpost render')
 
-      let post = (
-         <div className="card mb-3 text-center border-0" >
-            <div className="card-body">
-               <p className="card-text text-muted">Please select a post !</p>
-            </div>
-         </div>)
+      // let post = (
+      //    <div className="card mb-3 text-center border-0" >
+      //       <div className="card-body">
+      //          <p className="card-text text-muted">Please select a post !</p>
+      //       </div>
+      //    </div>)
 
-      if (this.state.id || (this.state.loadedPostId !== this.props.id)) {
-         post = (
-            <div className="card mb-3 text-center border-0" >
-               <div className="card-body">
-                  <p className="card-text text-muted">Loading...</p>
-               </div>
-            </div>)
-      }
+      // if (this.state.id || (this.state.loadedPostId !== this.props.match.params.id)) {
+      //    post = (
+      //       <div className="card mb-3 text-center border-0" >
+      //          <div className="card-body">
+      //             <p className="card-text text-muted">Loading...</p>
+      //          </div>
+      //       </div>)
+      // }
 
-
+      let post = null;
+      
       if (this.state.loadedPost) {
          post = (
             <div className="card mb-3 text-center" >

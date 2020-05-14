@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Posts from './Posts';
 import NewPost from '../Component/NewPost';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import NavbarComponent from '../Component/Navbar'
 import FullPost from './../Component/FullPost';
 
@@ -15,9 +15,12 @@ class Blog extends Component {
                <NavbarComponent />
             </header>
 
+
             <Route path="/" exact component={Posts} ></Route>
-            <Route path="/new-post" component={NewPost} ></Route>
-            <Route path="/:id" exact component={FullPost} ></Route>
+            <Switch>
+               <Route path="/new-post" component={NewPost} ></Route>
+               <Route path="/:id" exact component={FullPost} ></Route>
+            </Switch>
 
          </div>
       )
