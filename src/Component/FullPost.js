@@ -1,25 +1,28 @@
 import React, { Component } from 'react'
-
-import axios from 'axios';
-
+import axios from '../axios'
 
 class FullPost extends Component {
    state = {
       loadedPost: null,
-
    }
 
-
    componentDidMount() {
+      this.loadData();
+   }
+
+   componentDidUpdate() {
+      this.loadData();
+   }
+
+   loadData() {
       if (this.props.match.params.id) {
-         if (!this.state.loadedPost ||
-            (this.state.loadedPost && this.state.loadedPost.id !== +this.props.match.params.id)
+         if (!this.state.loadedPost
+            || (this.state.loadedPost && this.state.loadedPost.id !== +this.props.match.params.id)
          ) {
-            axios
-               .get("https://jsonplaceholder.typicode.com/posts/" + this.props.match.params.id)
-               .then((response) => {
-                  this.setState({ loadedPost: response.data, loadedPostId: this.props.match.params.id });
-               })
+            axios.get('/posts/' + this.props.match.params.id + '.json')
+               .then(response => {
+                  this.setState({ loadedPost: response.data });
+               });
          }
       }
    }
@@ -30,12 +33,17 @@ class FullPost extends Component {
 
    render() {
 
-      let post = null;
+      let post = <p style={{ textAlign: "center" }}>Please select a Post!</p>;
+
+      if (this.props.match.params.id) {
+         post = <p style={{ textAlign: "center" }}>Loading...!</p>;
+      }
+
       if (this.state.loadedPost) {
          post = (
             <div className="container p-3 mt-5">
                <div className="card mb-3 text-center" >
-                  
+
                   <img className="card-img-top"
                      src={process.env.PUBLIC_URL + '/photos/unsplash-' + this.props.match.params.id + '.jpg'}
                      alt={'photo_' + this.props.match.params.id}

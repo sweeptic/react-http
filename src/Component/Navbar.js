@@ -18,7 +18,7 @@ const Navbar_Component = () => {
                <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="ml-auto">
 
-                     <Nav.Link as={NavLink} to="/" exact activeStyle={myActiveStyle}>Home</Nav.Link>
+                     <Nav.Link as={NavLink} to="/posts/" exact activeStyle={myActiveStyle}>Home</Nav.Link>
 
                      <Nav.Link as={NavLink} activeStyle={myActiveStyle} to={{
                         pathname: '/new-post',

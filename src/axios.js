@@ -1,11 +1,7 @@
-import  axios  from 'axios';
+import axios from 'axios';
 
-
-//used by posts
 const instance = axios.create({
-    baseURL: "https://jsonplaceholder.typicode.com"
+    baseURL: "https://react-http-cec91.firebaseio.com/"
 });
-
-instance.defaults.headers.common["Authorization"] = "AUTH TOKEN FROM INSTANCE";
 
 export default instance;

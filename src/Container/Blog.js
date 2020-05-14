@@ -3,7 +3,6 @@ import Posts from './Posts';
 import NewPost from '../Component/NewPost';
 import { Route, Switch } from 'react-router-dom';
 import NavbarComponent from '../Component/Navbar'
-import FullPost from './../Component/FullPost';
 
 
 class Blog extends Component {
@@ -13,10 +12,11 @@ class Blog extends Component {
 
             <NavbarComponent />
 
-            <Route path="/" exact component={Posts} ></Route>
+            {/* <Route path="/" exact component={Posts} ></Route> */}
+
             <Switch>
-               <Route path="/new-post" component={NewPost} ></Route>
-               <Route path="/:id" exact component={FullPost} ></Route>
+               <Route path="/new-post" component={NewPost} />
+               <Route path="/posts" component={Posts} />
             </Switch>
 
          </div>
