@@ -50,16 +50,27 @@ class FullPost extends Component {
       // }
 
       let post = null;
-      
+      console.log(this.props)
       if (this.state.loadedPost) {
          post = (
-            <div className="card mb-3 text-center" >
-               <div className="card-body p-0">
-                  <h4 className="card-title border-bottom p-3">{this.state.loadedPost.title}</h4>
-                  <p className="card-text text-muted border-bottom p-3">{this.state.loadedPost.body}</p>
-                  <button className="mb-3 btn btn-warning" type="button" onClick={this.deletePostHandler} >Delete Post</button>
+
+            <div className="container p-3 mt-5">
+               <div className="card mb-3 text-center" >
+                  <img className="card-img-top"
+
+                     src={process.env.PUBLIC_URL + '/photos/unsplash-' + this.props.match.params.id + '.jpg'}
+                     alt={'photo_' + this.props.match.params.id}
+
+                  />
+
+                  <div className="card-body p-0">
+                     <h4 className="card-title border-bottom p-3">{this.state.loadedPost.title}</h4>
+                     <p className="card-text text-muted border-bottom p-3">{this.state.loadedPost.body}</p>
+                     <button className="mb-3 btn btn-warning" type="button" onClick={this.deletePostHandler} >Delete Post</button>
+                  </div>
                </div>
             </div>
+
          )
       }
 

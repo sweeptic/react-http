@@ -20,7 +20,7 @@ class Posts extends Component {
          .get("https://jsonplaceholder.typicode.com/posts/")
          .then((response) => {
             console.log('............componentDidMount then -> Post fetch data')
-            const updatedPosts = response.data.slice(0, 10).map(post => {
+            const updatedPosts = response.data.slice(0, 50).map(post => {
                return {
                   ...post, author: 'Max'
                }

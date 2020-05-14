@@ -11,10 +11,8 @@ class Blog extends Component {
       console.log('....Blog render')
       return (
          <div style={{ backgroundColor: "#f0f2f5" }}>
-            <header >
-               <NavbarComponent />
-            </header>
 
+            <NavbarComponent />
 
             <Route path="/" exact component={Posts} ></Route>
             <Switch>
