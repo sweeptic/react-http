@@ -6,6 +6,10 @@ import NavbarComponent from '../Component/Navbar'
 
 
 class Blog extends Component {
+   state = {
+      auth: false
+   }
+
    render() {
       return (
          <div style={{ backgroundColor: "#f0f2f5" }}>
@@ -13,7 +17,8 @@ class Blog extends Component {
             <NavbarComponent />
 
             <Switch>
-               <Route path="/new-post" component={NewPost} />
+
+               {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null}
                <Route path="/posts" component={Posts} />
                <Redirect from="/" to="/posts" />
             </Switch>
