@@ -34,8 +34,8 @@ class Posts extends Component {
    }
 
    postSelectedHandler = (id) => {
-      // this.setState({selectedPostId: id})
-      this.props.history.push('/posts/' + id)
+      this.props.history.push('/posts/' + id);
+      // console.log(this.props.match.url)
    }
 
    render() {
@@ -44,7 +44,6 @@ class Posts extends Component {
       if (!this.state.error) {
          posts = this.state.posts.map(post =>
 
-            // <Link to={'/' + post.id} key={post.id}>
             <Post
                imgPath={process.env.PUBLIC_URL + '/photos/unsplash-' + post.id + '.jpg'}
                imgAlt={'photo_' + post.id}
@@ -53,7 +52,7 @@ class Posts extends Component {
                author={post.author}
                clicked={() => this.postSelectedHandler(post.id)}
             />
-            // </Link>
+
          )
       }
 

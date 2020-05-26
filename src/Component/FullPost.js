@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from '../axios'
+import { Route, Switch, Redirect } from 'react-router-dom';
+
 
 class FullPost extends Component {
    state = {
@@ -8,26 +10,34 @@ class FullPost extends Component {
 
    componentDidMount() {
       this.loadData();
+      // console.log('didmount')
    }
 
    componentDidUpdate() {
       this.loadData();
+      // console.log('didupdate')
    }
 
    loadData() {
+      console.log(this.props.match.params.id)
       if (this.props.match.params.id) {
          if (!this.state.loadedPost
             || (this.state.loadedPost && this.state.loadedPost.id !== +this.props.match.params.id)) {
             axios.get('/posts/' + this.props.match.params.id + '.json')
-               .then(response => {
-                  this.setState({ loadedPost: response.data });
-
-                  console.log(this.state.loadedPost.id)
-                  console.log(this.props.match.params.id)
-               });
+               .then(
+                  response => {
+                     if (response && !response.data) {
+                        console.log(this)
+                        this.props.history.replace('/posts');
+                     }
+                     this.setState({ loadedPost: response.data });
+                  }
+               );
          }
       }
    }
+
+
 
    deletePostHandler = () => {
       console.log('deleting selected post')

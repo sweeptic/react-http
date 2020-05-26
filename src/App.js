@@ -6,8 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 class App extends Component {
    render() {
       return (
-         <BrowserRouter basename="/react-http">
-            {/* <BrowserRouter> */}
+         // <BrowserRouter basename="/react-http">
+         <BrowserRouter>
             <Blog />
          </BrowserRouter>
       )
@@ -16,3 +16,4 @@ class App extends Component {
 
 
 export default App;
+

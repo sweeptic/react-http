@@ -17,3 +17,5 @@ const Post = (props) => {
 }
 
 export default withRouter(Post);
+
+// export default Post;
