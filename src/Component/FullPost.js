@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
 import axios from '../axios'
-import { Route, Switch, Redirect } from 'react-router-dom';
-
 
 class FullPost extends Component {
+   _isMounted = false;
+
    state = {
       loadedPost: null,
    }
 
    componentDidMount() {
       this.loadData();
-      // console.log('didmount')
+      this._isMounted = true;
+      console.log('c did mount')
    }
 
    componentDidUpdate() {
       this.loadData();
-      // console.log('didupdate')
+      console.log('c did update',this.state)
    }
 
    loadData() {
-      console.log(this.props.match.params.id)
       if (this.props.match.params.id) {
          if (!this.state.loadedPost
             || (this.state.loadedPost && this.state.loadedPost.id !== +this.props.match.params.id)) {
@@ -27,7 +27,6 @@ class FullPost extends Component {
                .then(
                   response => {
                      if (response && !response.data) {
-                        console.log(this)
                         this.props.history.replace('/posts');
                      }
                      this.setState({ loadedPost: response.data });
@@ -37,6 +36,9 @@ class FullPost extends Component {
       }
    }
 
+   componentWillUnmount() {
+      this._isMounted = false;
+   }
 
 
    deletePostHandler = () => {
@@ -55,7 +57,6 @@ class FullPost extends Component {
          post = (
             <div className="container p-3 mt-5">
                <div className="card mb-3 text-center" >
-
                   <img className="card-img-top"
                      src={process.env.PUBLIC_URL + '/photos/unsplash-' + this.props.match.params.id + '.jpg'}
                      alt={'photo_' + this.props.match.params.id}
@@ -67,12 +68,10 @@ class FullPost extends Component {
                   </div>
                </div>
             </div>
-
          )
       }
       return post;
    }
 }
-
 
 export default FullPost

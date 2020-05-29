@@ -33,9 +33,10 @@ class Posts extends Component {
          })
    }
 
+
+
    postSelectedHandler = (id) => {
       this.props.history.push('/posts/' + id);
-      // console.log(this.props.match.url)
    }
 
    render() {
@@ -52,7 +53,6 @@ class Posts extends Component {
                author={post.author}
                clicked={() => this.postSelectedHandler(post.id)}
             />
-
          )
       }
 
@@ -61,14 +61,11 @@ class Posts extends Component {
             <Container className="p-3 mt-5 card-columns">
                {posts}
             </Container>
-
             <Route path={this.props.match.url + '/:id'} exact component={FullPost} />
-
          </div>
 
       )
    }
-
 }
 
 export default Posts
